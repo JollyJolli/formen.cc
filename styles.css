@@ -1,0 +1,61 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #222; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    text-align: center;
+    margin: 20px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    border: 1px solid #3498db; /* Borde azul */
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    max-width: 300px;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+    background-color: #333; /* Fondo gris oscuro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    overflow: hidden; /* Oculta el contenido que se sale de la tarjeta */
+}
+
+.card:hover {
+    transform: scale(1.1) translateX(20px); /* Efecto de "salida de pantalla" */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Aumenta la sombra al pasar el ratón */
+}
+
+h1, h2 {
+    color: #3498db; /* Azul */
+}
+
+p {
+    color: #bdc3c7; /* Gris claro */
+}
+
+button {
+    background-color: #e74c3c; /* Rojo */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #c0392b; /* Rojo más oscuro al pasar el ratón */
+}
