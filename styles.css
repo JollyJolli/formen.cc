@@ -92,10 +92,12 @@ body.mode-night .mode-toggle {
   color: #ddd;
 }
 
-.top-right {
+
+
+.top-left {
   position: absolute;
   top: 20px;
-  right: 20px;
+  left: 20px;
   font-size: 1.2rem;
   font-weight: bold;
   color: #fff;
