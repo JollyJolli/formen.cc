@@ -1,61 +1,116 @@
-body {
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #222; /* Fondo oscuro */
-    color: #fff; /* Texto blanco */
-    margin: 0;
-    padding: 0;
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #f2f2f2;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Mode-changing Button */
+    .mode-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: #dcdcdc;
+      border: none;
+      color: #666;
+      font-size: 1.2rem;
+      padding: 10px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+
+    .mode-toggle:hover {
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    .mode-toggle:focus {
+      outline: none;
+      box-shadow: 0 0 0 4px #5a01a7;
+    }
+
+    .mode-toggle:active {
+      background-color: #e6e6e6;
+      color: #333;
+    }
+
+    .mode-toggle i {
+      margin-right: 5px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .mode-toggle.mode-night i {
+      transform: rotate(180deg);
+    }
+
+    .mode-toggle.mode-night {
+      background-color: #5a01a7;
+      color: #fff;
+    }
+
+    .mode-toggle.mode-night:hover {
+      background-color: #7a01a7;
+    }
+
+    .mode-toggle.mode-night:focus {
+      box-shadow: 0 0 0 4px #5a01a7;
+    }
+
+    .mode-toggle.mode-night:active {
+      background-color: #6a01a7;
+    }
+
+    .mode-toggle.mode-night i {
+      color: #fff;
+    }
+
+    /* Screen Reader Text */
+    .screen-reader-text {
+      position: absolute;
+      left: -10000px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+/* Night mode styles */
+body.mode-night {
+  background-color: #333;
+  color: #ddd;
 }
 
-.header {
-    text-align: center;
-    margin: 20px;
+body.mode-night .mode-toggle {
+  background-color: #555;
+  color: #ddd;
 }
 
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+
+
+.new-design-message {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #5a01a7;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  animation: fadeOut 2s ease-out forwards;
 }
 
-.card {
-    border: 1px solid #3498db; /* Borde azul */
-    border-radius: 10px;
-    padding: 20px;
-    margin: 10px;
-    max-width: 300px;
-    cursor: pointer;
-    transition: transform 0.5s ease-in-out;
-    background-color: #333; /* Fondo gris oscuro */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
-    overflow: hidden; /* Oculta el contenido que se sale de la tarjeta */
-}
-
-.card:hover {
-    transform: scale(1.1) translateX(20px); /* Efecto de "salida de pantalla" */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Aumenta la sombra al pasar el ratón */
-}
-
-h1, h2 {
-    color: #3498db; /* Azul */
-}
-
-p {
-    color: #bdc3c7; /* Gris claro */
-}
-
-button {
-    background-color: #e74c3c; /* Rojo */
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-}
-
-button:hover {
-    background-color: #c0392b; /* Rojo más oscuro al pasar el ratón */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
 }
