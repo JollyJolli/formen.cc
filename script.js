@@ -12,3 +12,9 @@ body.classList.add('mode-day');
 // Initialize the mode-changing button with the day mode
 const modeToggle = document.querySelector('.mode-toggle');
 modeToggle.classList.add('mode-day');
+
+document.addEventListener("DOMContentLoaded", function() {
+  setTimeout(function() {
+    document.querySelector(".new-design-message").style.display = "none";
+  }, 5000);
+});
