@@ -91,3 +91,15 @@ body.mode-night .mode-toggle {
   background-color: #555;
   color: #ddd;
 }
+
+.top-right {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #5a01a7;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
