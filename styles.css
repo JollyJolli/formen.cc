@@ -94,14 +94,23 @@ body.mode-night .mode-toggle {
 
 
 
-.top-left {
+.new-design-message {
   position: absolute;
   top: 20px;
   left: 20px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #fff;
   background-color: #5a01a7;
-  padding: 5px 10px;
+  color: #fff;
+  padding: 10px;
   border-radius: 5px;
+  animation: fadeOut 2s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
 }
