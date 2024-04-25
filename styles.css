@@ -61,14 +61,17 @@ input[type="submit"]:focus {
   text-align: center;
 }
 
-.header h1 {
+.header h1,
+.header p {
   color: #fff;
+}
+
+.header h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
 .header p {
-  color: #fff;
   font-size: 1.2rem;
 }
 
@@ -85,16 +88,9 @@ input[type="submit"]:focus {
   width: 100%; /* Asegura que ocupe todo el ancho disponible */
 }
 
-
-.container h2 {
-  text-align: center; /* Asegura que el texto esté centrado */
-  width: 100%; /* Asegura que ocupe todo el ancho disponible */
-}
-
 .center-text {
   text-align: center;
 }
-
 
 .card {
   background-color: #444; /* Cambiado a gris oscuro para modo noche */
@@ -110,19 +106,14 @@ input[type="submit"]:focus {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.card h2 {
+.card h2,
+.card p {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   color: #fff; /* Cambiado a blanco para modo noche */
 }
 
-.card p {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: #fff; /* Cambiado a blanco para modo noche */
-}
-
-/* Footers Styles */
+/* Footer Styles */
 footer {
   background-color: #333;
   color: #fff;
@@ -151,4 +142,51 @@ footer p {
 .dark-mode .card h2,
 .dark-mode .card p {
   color: #fff;
+}
+
+/* Estilos para resaltar el contorno de las cards */
+.bright-card {
+  border: 2px solid #8A2BE2; /* Cambia el color del borde a morado brillante */
+}
+
+.bright-card:hover {
+  border-color: #9932CC; /* Cambia el color del borde a un tono más brillante al hacer hover */
+}
+
+/* Estilos para la etiqueta de "Nuevo" en las cards */
+.label-container {
+  position: relative; /* Hace que la posición absoluta de la etiqueta sea relativa a este contenedor */
+}
+
+.new-label {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  background-color: #8A2BE2;
+  color: #fff;
+  padding: 0.2rem 0.3rem;
+  font-size: 0.8rem;
+  border-radius: 0.25rem;
+}
+
+/* Estilos para la etiqueta de "Nuevo" en las cards en modo oscuro */
+.dark-mode .new-label {
+  background-color: #9932CC;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .container {
+    margin: 1rem auto;
+  }
+
+  .card {
+    flex: 0 0 calc(50% - 2rem);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .card {
+    flex: 0 0 calc(100% - 2rem);
+  }
 }
