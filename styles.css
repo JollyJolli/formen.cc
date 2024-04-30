@@ -100,10 +100,18 @@ input[type="submit"]:focus {
   margin-bottom: 2rem;
   padding: 1.5rem;
   text-align: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s, transform 0.5s;
 }
 
 .card:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .card h2,
