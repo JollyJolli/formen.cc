@@ -1,0 +1,58 @@
+{
+  "Webs": [
+    {
+      "link": "http://sports.formen.cc",
+      "titulo": "Deportes",
+      "descripcion": "¡Busca información sobre jugadores de varios deportes!",
+      "nueva": false
+    },
+    {
+      "link": "http://cktls.formen.cc",
+      "titulo": "Cocteles",
+      "descripcion": "¡Busca información sobre cocteles!",
+      "nueva": false
+    },
+    {
+      "link": "http://flag-game.formen.cc",
+      "titulo": "¡Adivina la Bandera!",
+      "descripcion": "¡Un juego sencillo de adivinar la bandera!",
+      "nueva": false
+    },
+    {
+      "link": "http://rm.formen.cc",
+      "titulo": "Rick and Morty Characters",
+      "descripcion": "¡Busca personajes de Rick and Morty!",
+      "nueva": false
+    },
+    {
+      "link": "http://food.formen.cc",
+      "titulo": "Comida",
+      "descripcion": "¡Busca información sobre comida!",
+      "nueva": false
+    },
+    {
+      "link": "http://disney.formen.cc",
+      "titulo": "Disney",
+      "descripcion": "¡Busca personajes de Disney!",
+      "nueva": false
+    },
+    {
+      "link": "http://office.formen.cc",
+      "titulo": "The Office",
+      "descripcion": "¡Busca personajes de The Office!",
+      "nueva": false
+    },
+    {
+      "link": "http://btc.formen.cc",
+      "titulo": "Bitcoin",
+      "descripcion": "¡Obtén el valor de bitcoin en dólares!",
+      "nueva": false
+    },
+    {
+      "link": "http://paises.formen.cc",
+      "titulo": "Buscar Paises",
+      "descripcion": "¡Busca informacion de distintos paises!",
+      "nueva": true
+    }
+  ]
+}

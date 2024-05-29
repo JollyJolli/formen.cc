@@ -1,28 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const links = document.querySelectorAll('a[href^="#"]');
-  const cards = document.querySelectorAll('.card');
+  const cardsContainer = document.getElementById('cards-container');
+  fetch('webs.json')
+    .then(response => response.json())
+    .then(data => {
+      data.Webs.forEach(web => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        if (web.nueva) {
+          card.classList.add('bright-card');
+        }
 
-  for (const link of links) {
-    link.addEventListener('click', smoothScroll);
-  }
+        card.innerHTML = `
+          <div class="card-content">
+            <h2><a href="${web.link}" title="Ir a la web de ${web.titulo}"><i class="fa-solid fa-flag"></i> ${web.titulo}</a></h2>
+            <p>${web.descripcion}</p>
+          </div>
+          ${web.nueva ? '<div class="label-container"><span class="new-label">Nuevo</span></div>' : ''}
+        `;
 
-  window.addEventListener('scroll', throttle(showCards, 200));
-
-  function smoothScroll(e) {
-    e.preventDefault();
-
-    const targetId = this.getAttribute("href").substring(1);
-    const targetElement = document.getElementById(targetId);
-
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop,
-        behavior: 'smooth'
+        cardsContainer.appendChild(card);
       });
-    }
-  }
+
+      // Show cards when page loads if they are already visible
+      showCards();
+
+      // Add scroll event listener for lazy loading cards
+      window.addEventListener('scroll', throttle(showCards, 200));
+    });
 
   function showCards() {
+    const cards = document.querySelectorAll('.card');
     cards.forEach(card => {
       if (card && isVisible(card) && !card.classList.contains('active')) {
         card.classList.add('active');
@@ -35,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return elementPosition.top < window.innerHeight && elementPosition.bottom >= 0;
   }
 
-  // Throttle function to limit the number of times `showCards` is called while scrolling
   function throttle(func, wait) {
     let context, args, result;
     let timeout = null;
@@ -66,7 +72,4 @@ document.addEventListener("DOMContentLoaded", () => {
       return result;
     };
   }
-
-  // Show cards when page loads if they are already visible
-  showCards();
 });
