@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         card.innerHTML = `
           <div class="card-content">
-            <h2><a href="${web.link}" title="Ir a la web de ${web.titulo}"><i class="fa-solid fa-flag"></i> ${web.titulo}</a></h2>
+            <h2><a href="${web.link}" title="Ir a la web de ${web.titulo}"><i class="${web.icon}"></i> ${web.titulo}</a></h2>
             <p>${web.descripcion}</p>
           </div>
           ${web.nueva ? '<div class="label-container"><span class="new-label">Nuevo</span></div>' : ''}
