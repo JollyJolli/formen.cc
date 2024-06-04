@@ -52,6 +52,12 @@
       "link": "http://paises.formen.cc",
       "titulo": "Buscar Paises",
       "descripcion": "¡Busca informacion de distintos paises!",
+      "nueva": false
+    },
+    {
+      "link": "https://qr.formen.cc",
+      "titulo": "Generador de QRs",
+      "descripcion": "¡Crea tu propio QR!",
       "nueva": true
     }
   ]
