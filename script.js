@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const cardsContainer = document.getElementById('cards-container');
-  fetch('webs.json')
+  fetch('https://raw.githubusercontent.com/JollyJolli/json-db/main/data/webs/web-places.json')
     .then(response => response.json())
     .then(data => {
       data.Webs.forEach(web => {
