@@ -61,18 +61,26 @@ input[type="submit"]:focus {
   text-align: center;
   color: #032925;
   border-bottom: 2px solid #e6b4b7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header img {
+  margin-right: 10px;
 }
 
 .header h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #232d2e; /* Heading de color neutral */
+  color: #1C3D5A; /* Gris azulado oscuro */
 }
 
 .header p {
   font-size: 1.2rem;
   color: #333b3d; /* Color de subtítulo neutral */
 }
+
 
 /* Main Styles */
 .container {
