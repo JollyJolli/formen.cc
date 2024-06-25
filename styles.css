@@ -8,23 +8,23 @@
 body {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
-  color: #f0f5f9; /* Texto color */
-  background-color: #032925; /* Fondo color */
+  color: #EDEDED; /* Texto color */
+  background-color: #1C1B29; /* Fondo color */
 }
 
 a {
   text-decoration: none;
-  color: #fcd6da;
+  color: #C38D9E; /* Color morado claro */
 }
 
 a:hover {
-  color: #e6b4b7;
+  color: #84577C; /* Color morado oscuro */
 }
 
 button,
 input[type="submit"] {
-  background-color: #fcd6da;
-  color: #032925;
+  background-color: #84577C; /* Fondo morado */
+  color: #EDEDED; /* Texto claro */
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
@@ -33,13 +33,13 @@ input[type="submit"] {
 
 button:hover,
 input[type="submit"]:hover {
-  background-color: #e6b4b7;
+  background-color: #C38D9E; /* Fondo morado claro */
 }
 
 button:focus,
 input[type="submit"]:focus {
   outline: none;
-  box-shadow: 0 0 0 0.2rem rgba(252, 214, 218, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(132, 87, 124, 0.25);
 }
 
 .sr-only {
@@ -56,11 +56,11 @@ input[type="submit"]:focus {
 
 /* Header Styles */
 .header {
-  background-color: #fcd6da;
+  background-color: #3A2C5A; /* Fondo morado oscuro */
   padding: 2rem;
   text-align: center;
-  color: #032925;
-  border-bottom: 2px solid #e6b4b7;
+  color: #EDEDED; /* Texto claro */
+  border-bottom: 2px solid #84577C; /* Borde morado */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,14 +73,13 @@ input[type="submit"]:focus {
 .header h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #1C3D5A; /* Gris azulado oscuro */
+  color: #C38D9E; /* Título morado claro */
 }
 
 .header p {
   font-size: 1.2rem;
-  color: #333b3d; /* Color de subtítulo neutral */
+  color: #D1D1E9; /* Color de subtítulo claro */
 }
-
 
 /* Main Styles */
 .container {
@@ -93,11 +92,11 @@ input[type="submit"]:focus {
 
 .center-text {
   text-align: center;
-  color: #f0f5f9;
+  color: #EDEDED;
 }
 
 .card {
-  background-color: #04403a; /* Fondo de las tarjetas */
+  background-color: #292D3E; /* Fondo de las tarjetas morado oscuro */
   border-radius: 0.25rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   flex: 0 0 calc(33.333% - 2rem);
@@ -122,21 +121,21 @@ input[type="submit"]:focus {
 .card p {
   font-size: 1.2rem;
   margin-bottom: 1rem;
-  color: #f0f5f9;
+  color: #EDEDED;
 }
 
 .card h2 a {
-  color: #f0f5f9;
+  color: #EDEDED;
 }
 
 .card h2 a:hover {
-  color: #e6b4b7;
+  color: #C38D9E;
 }
 
 /* Footer Styles */
 footer {
-  background-color: #04403a;
-  color: #f0f5f9;
+  background-color: #292D3E;
+  color: #EDEDED;
   padding: 1rem;
   text-align: center;
 }
@@ -147,11 +146,11 @@ footer p {
 
 /* Estilos para resaltar el contorno de las cards */
 .bright-card {
-  border: 2px solid #fcd6da;
+  border: 2px solid #C38D9E;
 }
 
 .bright-card:hover {
-  border-color: #e6b4b7;
+  border-color: #84577C;
 }
 
 /* Estilos para la etiqueta de "Nuevo" en las cards */
@@ -163,8 +162,8 @@ footer p {
   position: absolute;
   top: 0.3rem;
   right: 0.3rem;
-  background-color: #fcd6da;
-  color: #032925;
+  background-color: #84577C;
+  color: #EDEDED;
   padding: 0.2rem 0.3rem;
   font-size: 0.8rem;
   border-radius: 0.25rem;
