@@ -18,12 +18,12 @@ a {
 }
 
 a:hover {
-  color: #84577C; /* Color morado oscuro */
+  color: #46e282; /* Color morado oscuro */
 }
 
 button,
 input[type="submit"] {
-  background-color: #84577C; /* Fondo morado */
+  background-color: #46e282; /* Fondo morado */
   color: #EDEDED; /* Texto claro */
   border: none;
   padding: 0.5rem 1rem;
@@ -146,11 +146,11 @@ footer p {
 
 /* Estilos para resaltar el contorno de las cards */
 .bright-card {
-  border: 2px solid #C38D9E;
+  border: 2px solid #46e282;
 }
 
 .bright-card:hover {
-  border-color: #84577C;
+  border-color: #46e282;
 }
 
 /* Estilos para la etiqueta de "Nuevo" en las cards */
@@ -162,11 +162,31 @@ footer p {
   position: absolute;
   top: 0.3rem;
   right: 0.3rem;
-  background-color: #84577C;
+  background-color: #46e282;
   color: #EDEDED;
   padding: 0.2rem 0.3rem;
   font-size: 0.8rem;
   border-radius: 0.25rem;
+}
+
+/* Estilos para la etiqueta de "Actualizado" en las cards */
+.updated-label {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  background-color: #7751e1;
+  color: #EDEDED;
+  padding: 0.2rem 0.3rem;
+  font-size: 0.8rem;
+  border-radius: 0.25rem;
+}
+
+.updated-card {
+  border: 2px solid #7751e1; /* Color del borde para tarjetas actualizadas */
+}
+
+.updated-card:hover {
+  border-color: #7751e1; /* Color del borde al pasar el ratón sobre tarjetas actualizadas */
 }
 
 /* Media Queries */
@@ -180,4 +200,50 @@ footer p {
   .card {
     flex: 0 0 calc(100% - 2rem);
   }
+}
+
+/* Estilos para centrar los botones de filtración */
+.filters {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem; /* Espacio debajo de los botones */
+}
+
+.filter-button {
+  background-color: #292D3E;
+  color: #EDEDED;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.filter-button:hover {
+  background-color: #3A2C5A;
+}
+
+.filter-button.active {
+  background-color: #84577C;
+  color: #EDEDED;
+}
+
+/* Estilos específicos para hovers */
+.filter-button[data-filter="new"]:hover {
+  background-color: #46e282;
+}
+
+.filter-button[data-filter="updated"]:hover {
+  background-color: #7751e1;
+}
+
+.filter-button.active[data-filter="new"] {
+  background-color: #46e282;
+  color: #EDEDED;
+}
+
+.filter-button.active[data-filter="updated"] {
+  background-color: #7751e1;
+  color: #EDEDED;
 }
