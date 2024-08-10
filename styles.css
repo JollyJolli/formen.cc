@@ -1,4 +1,3 @@
-/* General Styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,18 +11,42 @@ body {
   background-color: #1C1B29; /* Fondo color */
 }
 
-a {
+/* Nuevo Estilo para el Contenedor de Publicidad */
+.promo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #292D3E; /* Fondo morado oscuro */
+  padding: 1rem;
+  margin: 2rem 0;
+  border-radius: 0.25rem;
+  border: 2px solid #3A2C5A;
+}
+
+.promo-container a {
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  color: #C38D9E; /* Color morado claro */
 }
 
-a:hover {
-  color: #46e282; /* Color morado oscuro */
+.promo-image {
+  max-width: 250px; /* Ajuste del tamaño de la imagen */
+  margin-right: 2rem;
+  border-radius: 0.25rem;
 }
 
-button,
-input[type="submit"] {
-  background-color: #46e282; /* Fondo morado */
+.promo-text {
+  text-align: left;
+}
+
+.promo-text h2 {
+  font-size: 2rem;
+  color: #C38D9E;
+  margin-bottom: 1rem;
+}
+
+.promo-button {
+  background-color: #46e282; /* Fondo del botón */
   color: #EDEDED; /* Texto claro */
   border: none;
   padding: 0.5rem 1rem;
@@ -31,30 +54,11 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-button:hover,
-input[type="submit"]:hover {
+.promo-button:hover {
   background-color: #C38D9E; /* Fondo morado claro */
 }
 
-button:focus,
-input[type="submit"]:focus {
-  outline: none;
-  box-shadow: 0 0 0 0.2rem rgba(132, 87, 124, 0.25);
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-/* Header Styles */
+/* Otros estilos generales y de secciones ya existentes */
 .header {
   background-color: #3A2C5A; /* Fondo morado oscuro */
   padding: 2rem;
@@ -80,6 +84,7 @@ input[type="submit"]:focus {
   font-size: 1.2rem;
   color: #D1D1E9; /* Color de subtítulo claro */
 }
+
 
 /* Main Styles */
 .container {
