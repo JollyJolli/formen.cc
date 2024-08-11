@@ -1,3 +1,4 @@
+/* General Styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,42 +12,19 @@ body {
   background-color: #1C1B29; /* Fondo color */
 }
 
-/* Nuevo Estilo para el Contenedor de Publicidad */
-.promo-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #292D3E; /* Fondo morado oscuro */
-  padding: 1rem;
-  margin: 2rem 0;
-  border-radius: 0.25rem;
-  border: 2px solid #3A2C5A;
-}
-
-.promo-container a {
-  display: flex;
-  align-items: center;
+/* Link Styles */
+a {
   text-decoration: none;
+  color: #C38D9E; /* Color morado claro */
 }
 
-.promo-image {
-  max-width: 250px; /* Ajuste del tamaño de la imagen */
-  margin-right: 2rem;
-  border-radius: 0.25rem;
+a:hover {
+  color: #46e282; /* Color morado oscuro */
 }
 
-.promo-text {
-  text-align: left;
-}
-
-.promo-text h2 {
-  font-size: 2rem;
-  color: #C38D9E;
-  margin-bottom: 1rem;
-}
-
-.promo-button {
-  background-color: #46e282; /* Fondo del botón */
+button,
+input[type="submit"] {
+  background-color: #46e282; /* Fondo morado */
   color: #EDEDED; /* Texto claro */
   border: none;
   padding: 0.5rem 1rem;
@@ -54,11 +32,30 @@ body {
   cursor: pointer;
 }
 
-.promo-button:hover {
+button:hover,
+input[type="submit"]:hover {
   background-color: #C38D9E; /* Fondo morado claro */
 }
 
-/* Otros estilos generales y de secciones ya existentes */
+button:focus,
+input[type="submit"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(132, 87, 124, 0.25);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Header Styles */
 .header {
   background-color: #3A2C5A; /* Fondo morado oscuro */
   padding: 2rem;
@@ -85,6 +82,57 @@ body {
   color: #D1D1E9; /* Color de subtítulo claro */
 }
 
+/* Promo Container Styles */
+.promo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #292D3E; /* Fondo morado oscuro */
+  padding: 1rem;
+  margin: 2rem 0;
+  border-radius: 0.25rem;
+  border: 2px solid #3A2C5A;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+}
+
+.promo-container a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.promo-image {
+  max-width: 250px; /* Tamaño de la imagen grande */
+  margin-right: 2rem;
+  border-radius: 0.25rem;
+  width: 100%; /* Asegura que la imagen se ajuste en pantallas pequeñas */
+  height: auto;
+}
+
+.promo-text {
+  text-align: left;
+  max-width: 500px; /* Limita el ancho del texto en pantallas grandes */
+  width: 100%;
+}
+
+.promo-text h2 {
+  font-size: 2rem;
+  color: #C38D9E;
+  margin-bottom: 1rem;
+}
+
+.promo-button {
+  background-color: #46e282; /* Fondo del botón */
+  color: #EDEDED; /* Texto claro */
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.promo-button:hover {
+  background-color: #C38D9E; /* Fondo morado claro */
+}
 
 /* Main Styles */
 .container {
@@ -196,18 +244,44 @@ footer p {
 
 /* Media Queries */
 @media screen and (max-width: 768px) {
+  .promo-image {
+    max-width: 200px; /* Reduce el tamaño de la imagen en pantallas medianas */
+    margin-right: 1rem;
+  }
+
+  .promo-text h2 {
+    font-size: 1.8rem; /* Reduce el tamaño del texto */
+  }
+
   .card {
     flex: 0 0 calc(50% - 2rem);
   }
 }
 
 @media screen and (max-width: 576px) {
+  .promo-container {
+    flex-direction: column; /* Cambia la disposición a columna en pantallas pequeñas */
+    text-align: center;
+  }
+
+  .promo-image {
+    max-width: 100%; /* Imagen ocupa todo el ancho disponible */
+    margin: 0 0 1rem 0; /* Margen inferior */
+  }
+
+  .promo-text {
+    max-width: 100%; /* Texto ocupa todo el ancho disponible */
+  }
+
+  .promo-text h2 {
+    font-size: 1.5rem; /* Reduce más el tamaño del texto */
+  }
+
   .card {
     flex: 0 0 calc(100% - 2rem);
   }
 }
 
-/* Estilos para centrar los botones de filtración */
 .filters {
   display: flex;
   justify-content: center;
