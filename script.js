@@ -49,6 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (web.act) {
       card.classList.add('updated-card');
     }
+    if (web.contribuido) {
+      card.classList.add('contribuido-card');
+    }
 
     card.innerHTML = `
       <div class="card-content">
@@ -57,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
       ${web.nueva ? '<div class="label-container"><span class="new-label">Nuevo</span></div>' : ''}
       ${web.act ? '<div class="label-container"><span class="updated-label">Actualizado</span></div>' : ''}
+      ${web.contribuido ? '<div class="label-container"><span class="contribuido-label">Contribuido</span></div>' : ''}
     `;
 
     return card;
@@ -79,6 +83,8 @@ document.addEventListener("DOMContentLoaded", () => {
       filteredWebs = webs.filter(web => web.nueva === true);
     } else if (filterValue === 'updated') {
       filteredWebs = webs.filter(web => web.act === true);
+    } else if (filterValue === 'contribuido') {
+      filteredWebs = webs.filter(web => web.contribuido === true);
     }
 
     showCards(filteredWebs);

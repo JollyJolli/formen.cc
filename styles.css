@@ -326,3 +326,33 @@ footer p {
   background-color: #7751e1;
   color: #EDEDED;
 }
+
+/* Estilos para el botón Contribuido */
+.filter-button[data-filter="contribuido"]:hover {
+  background-color: #e18451; /* Color de fondo al pasar el ratón */
+}
+
+.filter-button.active[data-filter="contribuido"] {
+  background-color: #e18451;
+  color: #EDEDED;
+}
+
+/* Estilos para la etiqueta de "Contribuido" en las cards */
+.contribuido-label {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  background-color: #e18451;
+  color: #EDEDED;
+  padding: 0.2rem 0.3rem;
+  font-size: 0.8rem;
+  border-radius: 0.25rem;
+}
+
+.contribuido-card {
+  border: 2px solid #e18451; /* Color del borde para tarjetas contribuidas */
+}
+
+.contribuido-card:hover {
+  border-color: #e18451; /* Color del borde al pasar el ratón sobre tarjetas contribuidas */
+}
