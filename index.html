@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8W9Q7QHS21"></script>
   <script>
@@ -22,47 +21,43 @@
   <link rel="stylesheet" href="styles.css" />
   <title>Formen - Descubre Mis Sitios Web</title>
 </head>
-
 <body>
-  <header class="header">
-    <img src="./logo_small_icon_only.ico" alt="Icono de Formen" width="50" height="50">
-    <div>
-      <h1>Formen</h1>
-      <p>¡Hola! Bienvenido a mi página web. Aquí encontrarás proyectos interesantes para explorar.</p>
-    </div>
-  </header>
+  <!-- Landing Page Section -->
+  <section class="landing-page">
+      <div class="landing-text">
+          <h1>Descubre Mis Proyectos</h1>
+          <p>Bienvenido a Formen, donde encontrarás una colección de mis proyectos más emocionantes. Explora, aprende y descubre innovaciones en el mundo web.</p>
+      </div>
+  </section>
 
   <!-- Nuevo Div de Publicidad -->
   <div class="promo-container">
-    <a href="https://discord.com/oauth2/authorize?client_id=739231660721045524&permissions=36768832&scope=applications.commands%20bot" target="_blank">
-      <img src="/PROMO/PROMO.jpg" alt="Publicidad Kazuto" class="promo-image">
-    </a>
-    <div class="promo-text">
-      <h2>KAZUTO</h2>
       <a href="https://discord.com/oauth2/authorize?client_id=739231660721045524&permissions=36768832&scope=applications.commands%20bot" target="_blank">
-        <button class="promo-button">Agregar a un servidor</button>
+          <img src="/PROMO/PROMO.jpg" alt="Publicidad Kazuto" class="promo-image">
       </a>
-    </div>
+      <div class="promo-text">
+          <h2>KAZUTO</h2>
+          <a href="https://discord.com/oauth2/authorize?client_id=739231660721045524&permissions=36768832&scope=applications.commands%20bot" target="_blank">
+              <button class="promo-button">Agregar a un servidor</button>
+          </a>
+      </div>
   </div>
 
-  <main role="main">
-    <h2 class="center-text">Mis Proyectos</h2>
+  <header>
+      <h1>Proyectos</h1>
+      <div class="filters">
+          <button class="filter-btn" data-filter="all" style="background-color: #3498db;">Todos</button>
+          <button class="filter-btn" data-filter="new" style="background-color: #e74c3c;">Nuevos</button>
+          <button class="filter-btn" data-filter="updated" style="background-color: #2ecc71;">Actualizados</button>
+          <button class="filter-btn" data-filter="contributed" style="background-color: #f39c12;">Contribuidos</button>
+          <button class="filter-btn" data-filter="else" style="background-color: #9b59b6;">Otros</button>
+      </div>
+  </header>
 
-    <div class="filters">
-      <button class="filter-button active" data-filter="all">Todo</button>
-      <button class="filter-button" data-filter="new">Nuevo</button>
-      <button class="filter-button" data-filter="updated">Actualizado</button>
-      <button class="filter-button" data-filter="contribuido">Contribuido</button>
-    </div>
+  <section class="projects-container">
+      <!-- Project cards will be dynamically inserted here -->
+  </section>
 
-    <section class="container" id="cards-container">
-      <!-- Las cards se generarán aquí automáticamente :)-->
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2024 Formen. Todos los derechos reservados.</p>
-  </footer>
   <script src="script.js"></script>
 </body>
-
 </html>

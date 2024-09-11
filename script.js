@@ -1,118 +1,50 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const cardsContainer = document.getElementById('cards-container');
-  const filterButtons = document.querySelectorAll('.filter-button');
-  const messageContainer = document.createElement('div');
-  messageContainer.className = 'message';
-  messageContainer.textContent = 'No hay ninguna página que mostrar en este momento.';
-  cardsContainer.appendChild(messageContainer);
+// Fetch project data from the provided URL
+fetch('https://raw.githubusercontent.com/JollyJolli/json-db/main/data/webs/web-places.json')
+  .then(response => response.json())
+  .then(data => {
+    const projects = data.Webs;
+    displayProjects(projects);
+    setupFilterButtons(projects);
+  })
+  .catch(error => console.error('Error fetching project data:', error));
 
-  fetch('https://raw.githubusercontent.com/JollyJolli/json-db/main/data/webs/web-places.json')
-    .then(response => response.json())
-    .then(data => {
-      showCards(data.Webs); // Mostrar todas las tarjetas al principio
-      showCardsWithAnimation(); // Mostrar las tarjetas con animación inicialmente
+// Function to display projects
+function displayProjects(projects, filter = 'all') {
+  const projectsContainer = document.querySelector('.projects-container');
+  projectsContainer.innerHTML = ''; // Clear existing projects
 
-      // Agregar evento de clic a los botones de filtro
-      filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          const filterValue = button.dataset.filter;
-          filterCards(data.Webs, filterValue);
-          updateActiveButton(button);
-          showCardsWithAnimation(); // Mostrar las tarjetas con animación después de filtrar
-        });
-      });
+  projects.forEach(project => {
+    if (filter === 'new' && !project.nueva) return;
+    if (filter === 'updated' && !project.act) return;
+    if (filter === 'contributed' && !project.contribuido) return;
+    if (filter === 'else' && (project.nueva || project.act || project.contribuido)) return;
 
-      // Agregar evento de scroll para mostrar las tarjetas
-      window.addEventListener('scroll', throttle(showCardsWithAnimation, 200));
-    });
-
-  function showCards(webs) {
-    cardsContainer.innerHTML = ''; // Limpiar contenedor antes de agregar tarjetas
-
-    if (webs.length === 0) {
-      messageContainer.style.display = 'block';
-    } else {
-      messageContainer.style.display = 'none';
-      webs.forEach(web => {
-        const card = createCardElement(web);
-        cardsContainer.appendChild(card);
-      });
-    }
-  }
-
-  function createCardElement(web) {
-    const card = document.createElement('div');
-    card.className = 'card';
-    if (web.nueva) {
-      card.classList.add('bright-card');
-    }
-    if (web.act) {
-      card.classList.add('updated-card');
-    }
-    if (web.contribuido) {
-      card.classList.add('contribuido-card');
-    }
-
-    card.innerHTML = `
-      <div class="card-content">
-        <h2><a href="${web.link}" title="Ir a la web de ${web.titulo}"><i class="${web.icon}"></i> ${web.titulo}</a></h2>
-        <p>${web.descripcion}</p>
-      </div>
-      ${web.nueva ? '<div class="label-container"><span class="new-label">Nuevo</span></div>' : ''}
-      ${web.act ? '<div class="label-container"><span class="updated-label">Actualizado</span></div>' : ''}
-      ${web.contribuido ? '<div class="label-container"><span class="contribuido-label">Contribuido</span></div>' : ''}
+    const projectCard = document.createElement('div');
+    projectCard.classList.add('project-card');
+    if (project.nueva) projectCard.classList.add('new');
+    if (project.act) projectCard.classList.add('updated');
+    if (project.contribuido) projectCard.classList.add('contributed');
+    if (!project.nueva && !project.act && !project.contribuido) projectCard.classList.add('else');
+    
+    projectCard.innerHTML = `
+      <i class="${project.icon}"></i>
+      <h3>${project.titulo}</h3>
+      <p>${project.descripcion}</p>
     `;
-
-    return card;
-  }
-
-  function showCardsWithAnimation() {
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-      if (isVisible(card) && !card.classList.contains('active')) {
-        card.classList.add('active');
-        card.style.transitionDelay = `${Math.random() * 0.5}s`; // Añadir un retraso aleatorio para efecto escalonado
-      }
+    projectCard.addEventListener('click', () => {
+      window.open(project.link, '_blank');
     });
-  }
+    projectsContainer.appendChild(projectCard);
+  });
+}
 
-  function filterCards(webs, filterValue) {
-    let filteredWebs = webs;
-
-    if (filterValue === 'new') {
-      filteredWebs = webs.filter(web => web.nueva === true);
-    } else if (filterValue === 'updated') {
-      filteredWebs = webs.filter(web => web.act === true);
-    } else if (filterValue === 'contribuido') {
-      filteredWebs = webs.filter(web => web.contribuido === true);
-    }
-
-    showCards(filteredWebs);
-  }
-
-  function updateActiveButton(activeButton) {
-    filterButtons.forEach(button => {
-      button.classList.remove('active');
+// Setup filter buttons with event listeners
+function setupFilterButtons(projects) {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.getAttribute('data-filter');
+      displayProjects(projects, filter);
     });
-    activeButton.classList.add('active');
-  }
-
-  function isVisible(element) {
-    const elementPosition = element.getBoundingClientRect();
-    return elementPosition.top < window.innerHeight && elementPosition.bottom >= 0;
-  }
-
-  function throttle(func, wait) {
-    let timeout;
-    return function() {
-      const context = this;
-      const args = arguments;
-      if (!timeout) {
-        timeout = setTimeout(() => {
-          timeout = null;
-          func.apply(context, args);
-        }, wait);
-      }
-    };
-  }
-});
+  });
+}
