@@ -342,14 +342,20 @@ function handleLanguageSwitch() {
     displayProjects(projectsData.Webs, currentFilter, currentLanguage); // Refresh displayed projects
   });
 }
+
+
 function changeLanguage(language) {
   const title = document.getElementById("landing-title");
   const description = document.getElementById("landing-description");
   const projectsTitle = document.getElementById("projects-title");
+  const discordBtn = document.getElementById("discord");
+  const landingWall = document.getElementById("landing-wall");
 
   // Update text based on selected language
   if (language === "en") {
     title.textContent = title.dataset.en;
+    discordBtn.textContent=discordBtn.dataset.en;
+    landingWall.textContent=landingWall.dataset.en;
     description.textContent = description.dataset.en;
     projectsTitle.textContent = projectsTitle.dataset.en;
 
@@ -363,6 +369,8 @@ function changeLanguage(language) {
     title.textContent = title.dataset.es;
     description.textContent = description.dataset.es;
     projectsTitle.textContent = projectsTitle.dataset.es;
+    discordBtn.textContent=discordBtn.dataset.es;
+    landingWall.textContent=landingWall.dataset.es;
 
     // Update filter button text
     document.getElementById("filter-all").textContent = "Todos";
