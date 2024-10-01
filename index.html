@@ -1,71 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8W9Q7QHS21"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8W9Q7QHS21');
-  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="¡Hola! Bienvenido a Formen. Aquí encontrarás proyectos interesantes para explorar." />
   <meta name="keywords" content="formen.cc, sitios web, cards, desarrollo web" />
   <meta name="author" content="Formen" />
-  <!-- Favicon -->
-  <link rel="icon" href="./logo_small_icon_only.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="./logo_small_icon_only.ico">
+  <link rel="icon" href="./logo_small_icon_only.ico" type="image/x-icon" alt="Formen Logo">
+  <link rel="apple-touch-icon" href="./logo_small_icon_only.ico" alt="Formen Logo">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
-  <title>Formen - Descubre Mis Sitios Web</title>
+  <title id="page-title">Formen - Descubre Mis Sitios Web</title>
 </head>
 <body>
   <!-- Landing Page Section -->
   <section class="landing-page">
-      <div class="landing-text">
-          <h1>Descubre Mis Proyectos</h1>
-          <p>Bienvenido a Formen, donde encontrarás una colección de mis proyectos más emocionantes. Explora, aprende y descubre innovaciones en el mundo web.</p>
-      </div>
+    <div class="landing-text">
+      <h1 id="landing-title" data-es="Descubre Mis Proyectos" data-en="Discover My Projects">Descubre Mis Proyectos</h1>
+      <p id="landing-description" data-es="Bienvenido a Formen, donde encontrarás una colección de mis proyectos más emocionantes. Explora, aprende y descubre innovaciones en el mundo web." data-en="Welcome to Formen, where you will find a collection of my most exciting projects. Explore, learn, and discover innovations in the web world.">
+        Bienvenido a Formen, donde encontrarás una colección de mis proyectos más emocionantes. Explora, aprende y descubre innovaciones en el mundo web.
+      </p>
+    </div>
   </section>
 
-  <!-- Nuevo Div de Hacktober -->
-  <div class="promo-container">
-    <a href="https://hacktoberwall.formen.cc/" target="_blank">
-    </a>
-    <div class="promo-text">
-      <h2>HACKTOBER WALL</h2>
-      <p>Este es mi mas reciente proyecto enfocado para ayudar a la comunidad de programadores en esta festividad de hacktoberfest</p>
-    </div>
-  </div>
+ <!-- Language Switcher -->
+<div class="language-switcher" style="text-align: right; margin: 20px; padding: 10px;">
+  <select id="language-switcher" style="padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #3498db; background-color: #f0f0f0; cursor: pointer;">
+    <option value="es">Spanish </option>
+    <option value="en">English</option>
+  </select>
+</div>
 
-  <!-- Nuevo Div de Publicidad -->
-  <div class="promo-container">
-      <a href="https://discord.com/oauth2/authorize?client_id=739231660721045524&permissions=36768832&scope=applications.commands%20bot" target="_blank">
-          <img src="/PROMO/PROMO.jpg" alt="Publicidad Kazuto" class="promo-image">
-      </a>
-      <div class="promo-text">
-          <h2>KAZUTO</h2>
-          <a href="https://discord.com/oauth2/authorize?client_id=739231660721045524&permissions=36768832&scope=applications.commands%20bot" target="_blank">
-              <button class="promo-button">Agregar a un servidor</button>
-          </a>
-      </div>
-  </div>
 
+  <!-- Project Filters -->
   <header>
-      <h1>Proyectos</h1>
-      <div class="filters">
-          <button class="filter-btn" data-filter="all" style="background-color: #3498db;">Todos</button>
-          <button class="filter-btn" data-filter="new" style="background-color: #e74c3c;">Nuevos</button>
-          <button class="filter-btn" data-filter="updated" style="background-color: #2ecc71;">Actualizados</button>
-          <button class="filter-btn" data-filter="contributed" style="background-color: #f39c12;">Contribuidos</button>
-          <button class="filter-btn" data-filter="else" style="background-color: #9b59b6;">Otros</button>
-      </div>
+    <h1 id="projects-title" data-es="Proyectos" data-en="Projects">Proyectos</h1>
+    <div class="filters">
+      <button class="filter-btn" data-filter="all" style="background-color: #3498db;" id="filter-all">Todos</button>
+      <button class="filter-btn" data-filter="new" style="background-color: #e74c3c;" id="filter-new">Nuevos</button>
+      <button class="filter-btn" data-filter="updated" style="background-color: #2ecc71;" id="filter-updated">Actualizados</button>
+      <button class="filter-btn" data-filter="contributed" style="background-color: #f39c12;" id="filter-contributed">Contribuidos</button>
+      <button class="filter-btn" data-filter="else" style="background-color: #9b59b6;" id="filter-else">Otros</button>
+    </div>
   </header>
 
+  <!-- Projects Container -->
   <section class="projects-container">
-      <!-- Project cards will be dynamically inserted here -->
+    <!-- Project cards will be dynamically inserted here -->
   </section>
 
   <script src="script.js"></script>
