@@ -1,358 +1,271 @@
-/* General Styles */
+/* Basic resets and body styling */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
-  color: #EDEDED; /* Texto color */
-  background-color: #1C1B29; /* Fondo color */
+  background-color: #1a1a2e;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Required for positioning tags absolutely within the body */
 }
 
-/* Link Styles */
-a {
-  text-decoration: none;
-  color: #C38D9E; /* Color morado claro */
-}
-
-a:hover {
-  color: #46e282; /* Color morado oscuro */
-}
-
-button,
-input[type="submit"] {
-  background-color: #46e282; /* Fondo morado */
-  color: #EDEDED; /* Texto claro */
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  cursor: pointer;
-}
-
-button:hover,
-input[type="submit"]:hover {
-  background-color: #C38D9E; /* Fondo morado claro */
-}
-
-button:focus,
-input[type="submit"]:focus {
-  outline: none;
-  box-shadow: 0 0 0 0.2rem rgba(132, 87, 124, 0.25);
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-/* Header Styles */
-.header {
-  background-color: #3A2C5A; /* Fondo morado oscuro */
-  padding: 2rem;
+/* Landing Page Section */
+.landing-page {
+  background: #3498db;
+  color: #fff;
+  padding: 40px;
   text-align: center;
-  color: #EDEDED; /* Texto claro */
-  border-bottom: 2px solid #84577C; /* Borde morado */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.header img {
-  margin-right: 10px;
-}
-
-.header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #C38D9E; /* Título morado claro */
-}
-
-.header p {
-  font-size: 1.2rem;
-  color: #D1D1E9; /* Color de subtítulo claro */
-}
-
-/* Promo Container Styles */
-.promo-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #292D3E; /* Fondo morado oscuro */
-  padding: 1rem;
-  margin: 2rem 0;
-  border-radius: 0.25rem;
-  border: 2px solid #3A2C5A;
-  flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
-}
-
-.promo-container a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-.promo-image {
-  max-width: 250px; /* Tamaño de la imagen grande */
-  margin-right: 2rem;
-  border-radius: 0.25rem;
-  width: 100%; /* Asegura que la imagen se ajuste en pantallas pequeñas */
-  height: auto;
-}
-
-.promo-text {
-  text-align: left;
-  max-width: 500px; /* Limita el ancho del texto en pantallas grandes */
+  border-radius: 10px;
+  margin-bottom: 30px;
   width: 100%;
+  max-width: 1200px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.landing-text h1 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+
+.landing-text p {
+  font-size: 1.2em;
+}
+
+/* Promotional Section */
+.promo-container {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0f3460;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.promo-container img {
+  width: 150px;
+  border-radius: 10px;
+  margin-right: 20px;
 }
 
 .promo-text h2 {
-  font-size: 2rem;
-  color: #C38D9E;
-  margin-bottom: 1rem;
+  font-size: 2em;
+  margin-bottom: 10px;
 }
 
 .promo-button {
-  background-color: #46e282; /* Fondo del botón */
-  color: #EDEDED; /* Texto claro */
+  padding: 10px 20px;
+  background-color: #e94560;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
+  color: #fff;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .promo-button:hover {
-  background-color: #C38D9E; /* Fondo morado claro */
+  background-color: #16213e;
 }
 
-/* Main Styles */
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 2rem auto;
-  gap: 1rem;
-}
-
-.center-text {
+/* Header and Filters */
+header {
   text-align: center;
-  color: #EDEDED;
+  margin-bottom: 30px;
 }
 
-.card {
-  background-color: #292D3E; /* Fondo de las tarjetas morado oscuro */
-  border-radius: 0.25rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  flex: 0 0 calc(33.333% - 2rem);
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.5s, transform 0.5s;
-}
-
-.card:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.card.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.card h2,
-.card p {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: #EDEDED;
-}
-
-.card h2 a {
-  color: #EDEDED;
-}
-
-.card h2 a:hover {
-  color: #C38D9E;
-}
-
-/* Footer Styles */
-footer {
-  background-color: #292D3E;
-  color: #EDEDED;
-  padding: 1rem;
-  text-align: center;
-}
-
-footer p {
-  font-size: 1rem;
-}
-
-/* Estilos para resaltar el contorno de las cards */
-.bright-card {
-  border: 2px solid #46e282;
-}
-
-.bright-card:hover {
-  border-color: #46e282;
-}
-
-/* Estilos para la etiqueta de "Nuevo" en las cards */
-.label-container {
-  position: relative;
-}
-
-.new-label {
-  position: absolute;
-  top: 0.3rem;
-  right: 0.3rem;
-  background-color: #46e282;
-  color: #EDEDED;
-  padding: 0.2rem 0.3rem;
-  font-size: 0.8rem;
-  border-radius: 0.25rem;
-}
-
-/* Estilos para la etiqueta de "Actualizado" en las cards */
-.updated-label {
-  position: absolute;
-  top: 0.3rem;
-  right: 0.3rem;
-  background-color: #7751e1;
-  color: #EDEDED;
-  padding: 0.2rem 0.3rem;
-  font-size: 0.8rem;
-  border-radius: 0.25rem;
-}
-
-.updated-card {
-  border: 2px solid #7751e1; /* Color del borde para tarjetas actualizadas */
-}
-
-.updated-card:hover {
-  border-color: #7751e1; /* Color del borde al pasar el ratón sobre tarjetas actualizadas */
-}
-
-/* Media Queries */
-@media screen and (max-width: 768px) {
-  .promo-image {
-    max-width: 200px; /* Reduce el tamaño de la imagen en pantallas medianas */
-    margin-right: 1rem;
-  }
-
-  .promo-text h2 {
-    font-size: 1.8rem; /* Reduce el tamaño del texto */
-  }
-
-  .card {
-    flex: 0 0 calc(50% - 2rem);
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .promo-container {
-    flex-direction: column; /* Cambia la disposición a columna en pantallas pequeñas */
-    text-align: center;
-  }
-
-  .promo-image {
-    max-width: 100%; /* Imagen ocupa todo el ancho disponible */
-    margin: 0 0 1rem 0; /* Margen inferior */
-  }
-
-  .promo-text {
-    max-width: 100%; /* Texto ocupa todo el ancho disponible */
-  }
-
-  .promo-text h2 {
-    font-size: 1.5rem; /* Reduce más el tamaño del texto */
-  }
-
-  .card {
-    flex: 0 0 calc(100% - 2rem);
-  }
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
 }
 
 .filters {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem; /* Espacio debajo de los botones */
+  margin-bottom: 30px;
 }
 
-.filter-button {
-  background-color: #292D3E;
-  color: #EDEDED;
+.filter-btn {
   border: none;
-  padding: 0.5rem 1rem;
-  margin: 0.5rem;
+  color: #fff;
+  padding: 10px 20px;
+  margin: 5px;
   cursor: pointer;
-  border-radius: 0.25rem;
-  transition: background-color 0.3s, color 0.3s;
+  transition: transform 0.3s, color 0.3s;
+  position: relative;
+  border-radius: 5px;
+  z-index: 1;
 }
 
-.filter-button:hover {
-  background-color: #3A2C5A;
+.filter-btn:hover {
+  color: #fff;
+  transform: scale(1.05);
 }
 
-.filter-button.active {
-  background-color: #84577C;
-  color: #EDEDED;
+/* Project Cards */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
 }
 
-/* Estilos específicos para hovers */
-.filter-button[data-filter="new"]:hover {
-  background-color: #46e282;
+.project-card {
+  padding: 30px;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid transparent; /* Default border color is transparent */
+  background-color: #2c3e50; /* Slightly different background for better visibility */
 }
 
-.filter-button[data-filter="updated"]:hover {
-  background-color: #7751e1;
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-.filter-button.active[data-filter="new"] {
-  background-color: #46e282;
-  color: #EDEDED;
-}
-
-.filter-button.active[data-filter="updated"] {
-  background-color: #7751e1;
-  color: #EDEDED;
-}
-
-/* Estilos para el botón Contribuido */
-.filter-button[data-filter="contribuido"]:hover {
-  background-color: #e18451; /* Color de fondo al pasar el ratón */
-}
-
-.filter-button.active[data-filter="contribuido"] {
-  background-color: #e18451;
-  color: #EDEDED;
-}
-
-/* Estilos para la etiqueta de "Contribuido" en las cards */
-.contribuido-label {
+/* Tags for project cards */
+.project-card::before {
+  content: '';
   position: absolute;
-  top: 0.3rem;
-  right: 0.3rem;
-  background-color: #e18451;
-  color: #EDEDED;
-  padding: 0.2rem 0.3rem;
-  font-size: 0.8rem;
-  border-radius: 0.25rem;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  display: none; /* Initially hidden */
 }
 
-.contribuido-card {
-  border: 2px solid #e18451; /* Color del borde para tarjetas contribuidas */
+/* Specific Colors for Tags */
+.project-card.new {
+  border-color: #e74c3c;
 }
 
-.contribuido-card:hover {
-  border-color: #e18451; /* Color del borde al pasar el ratón sobre tarjetas contribuidas */
+.project-card.new::before {
+  content: 'Nuevo';
+  background-color: #e74c3c;
+  display: block; /* Show if the card has the 'new' class */
+}
+
+.project-card.updated {
+  border-color: #2ecc71;
+}
+
+.project-card.updated::before {
+  content: 'Actualizado';
+  background-color: #2ecc71;
+  display: block; /* Show if the card has the 'updated' class */
+}
+
+.project-card.contributed {
+  border-color: #f39c12;
+}
+
+.project-card.contributed::before {
+  content: 'Contribuido';
+  background-color: #f39c12;
+  display: block; /* Show if the card has the 'contributed' class */
+}
+
+.project-card.else {
+  border-color: #9b59b6;
+}
+
+/* Multiple Tags Handling */
+.project-card.new.updated {
+  border-color: #e74c3c; /* Prioritize 'new' color if both 'new' and 'updated' are present */
+}
+
+.project-card.new.contributed {
+  border-color: #e74c3c; /* Prioritize 'new' color if both 'new' and 'contributed' are present */
+}
+
+.project-card.updated.contributed {
+  border-color: #2ecc71; /* Prioritize 'updated' color if both 'updated' and 'contributed' are present */
+}
+
+.project-card.new.updated.contributed {
+  border-color: #e74c3c; /* Prioritize 'new' color if all three tags are present */
+}
+
+.project-card.new::before, 
+.project-card.updated::before, 
+.project-card.contributed::before {
+  display: block; /* Ensure all tags are visible if applicable */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .landing-page {
+    padding: 20px;
+  }
+
+  .promo-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .promo-container img {
+    width: 120px;
+    margin-bottom: 15px;
+  }
+
+  .promo-text h2 {
+    font-size: 1.5em;
+  }
+
+  .filter-btn {
+    padding: 8px 16px;
+    margin: 3px;
+    font-size: 0.9em;
+  }
+
+  .projects-container {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+
+  .project-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .landing-page {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  .promo-container img {
+    width: 100px;
+  }
+
+  .promo-text h2 {
+    font-size: 1.2em;
+  }
+
+  .filter-btn {
+    padding: 6px 12px;
+    margin: 2px;
+    font-size: 0.8em;
+  }
+
+  .project-card {
+    padding: 15px;
+  }
 }
