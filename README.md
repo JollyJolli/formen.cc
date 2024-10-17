@@ -1,17 +1,17 @@
 # 📚 Formen.cc
 
 ## 📖 Table of Contents
-1. [Overview](#overview)
-2. [Features](#features)
-3. [Structure](#structure)
-   - [Head Section](#head-section)
-   - [Body Section](#body-section)
-   - [Scripts](#scripts)
-4. [Dependencies](#dependencies)
-5. [Usage](#usage)
-6. [Contributing](#contributing)
-7. [License](#license)
-8. [Contact](#contact)
+1. [Overview](#🚀-overview)
+2. [Features](#🌟-features)
+3. [Structure](#🏗️-structure)
+   - [Head Section](#🏠-head-section)
+   - [Body Section](#📜-body-section)
+   - [Scripts](#🛠️-scripts)
+4. [Dependencies](#🔗-dependencies)
+5. [Usage](#🏁-usage)
+6. [Contributing](#🤝-contributing)
+7. [License](#📝-license)
+8. [Contact](#📬-contact)
 
 ## 🚀 Overview
 This HTML document represents the **Formen** website's landing page, showcasing various projects and providing a space to promote important tools and resources. The page is designed to be user-friendly and visually appealing, offering an engaging way for visitors to explore projects and learn more about web development.
@@ -62,7 +62,7 @@ This HTML document represents the **Formen** website's landing page, showcasing 
 Feel free to contribute by forking the repository, making your changes, and submitting a pull request. Contributions are welcome, especially for enhancing project descriptions and improving the overall design.
 
 ## 📝 License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## 📬 Contact
 For inquiries or suggestions, please contact me by opening a issue.
