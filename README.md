@@ -1,72 +1,64 @@
-# 📚 Formen.cc
+# 💻 Personal Portfolio Website
 
-## 📖 Table of Contents
-1. [Overview](#🚀-overview)
-2. [Features](#🌟-features)
-3. [Structure](#🏗️-structure)
-   - [Head Section](#🏠-head-section)
-   - [Body Section](#📜-body-section)
-   - [Scripts](#🛠️-scripts)
-4. [Dependencies](#🔗-dependencies)
-5. [Usage](#🏁-usage)
-6. [Contributing](#🤝-contributing)
-7. [License](#📝-license)
-8. [Contact](#📬-contact)
+A modern, hacker-themed personal portfolio website that showcases your projects and skills in an engaging way.
 
-## 🚀 Overview
-This HTML document represents the **Formen** website's landing page, showcasing various projects and providing a space to promote important tools and resources. The page is designed to be user-friendly and visually appealing, offering an engaging way for visitors to explore projects and learn more about web development.
+## ✨ Features
 
-## 🌟 Features
-- **📊 Google Analytics**: Integrated to track user interactions and website performance.
-- **📱 Responsive Design**: Optimized for viewing on various devices (desktop, tablet, mobile).
-- **🎉 Promotional Sections**: Dedicated areas for highlighting important projects and resources.
-- **🔍 Project Filtering**: Provides buttons to filter projects by categories.
+- 🎯 Clean and minimalist design with a hacker theme
+- 📱 Responsive layout that works on all devices
+- 🚀 Dynamic project showcase
+- 🔧 Skills and expertise section
+- 📬 Contact information display
+- ⚙️ Easy to customize through data.json
 
-| Feature              | Description                                            |
-|----------------------|--------------------------------------------------------|
-| Google Analytics      | Tracks user interactions.                              |
-| Responsive Design     | Adapts to various screen sizes.                       |
-| Promotional Sections  | Showcases important projects and resources.           |
-| Project Filtering     | Allows users to sort projects easily.                 |
+## 🛠️ Technologies Used
 
-## 🏗️ Structure
-### 🏠 Head Section
-- **Meta Tags**: Includes charset, viewport settings, and SEO keywords.
-- **Favicon and Apple Touch Icon**: Custom icons for branding.
-- **Stylesheets**: Links to Font Awesome for icons and a custom stylesheet (`styles.css`).
-- **Title**: The page title is set to "Formen - Descubre Mis Sitios Web".
+- 🌐 HTML5
+- 🎨 CSS3
+- 🔄 JavaScript (Vanilla)
+- 📦 JSON for data management
 
-### 📜 Body Section
-- **Landing Page Section**: Welcoming message and description of the projects.
-- **Promotional Sections**: Areas dedicated to showcasing important projects and resources.
-- **Projects Header**: Title for the project section and filter buttons.
-- **Projects Container**: Placeholder for dynamically inserted project cards.
+## 📁 Project Structure
 
-### 🛠️ Scripts
-- **External Scripts**: Includes a script (`script.js`) to handle dynamic functionality and Google Analytics for tracking.
+```
+├── data/
+│   └── data.json        # Personal information and project data
+├── js/
+│   └── main.js         # Core JavaScript functionality
+├── styles/
+│   └── main.css        # Styling and animations
+├── index.html          # Main entry point
+└── README.md          # Project documentation
+```
 
-## 🔗 Dependencies
-- **Font Awesome**: For icons, included via a CDN link.
-- **Custom CSS**: Ensure you have a `styles.css` file for styling.
-- **JavaScript File**: Ensure you have a `script.js` file to implement the project card functionality and filter options.
+## 🚀 Setup
 
-## 🏁 Usage
-1. **Clone the Repository**: Use the following command to clone the repository:
-   ```bash
-   git clone <repository-url>
-   ```
-2. **Open the HTML File**: Open the `index.html` file in a web browser to view the page.
-3. **Customize**: Modify the content in the HTML file, CSS styles in `styles.css`, and JavaScript functionality in `script.js` as needed.
+1. Clone the repository
+2. Customize the `data/data.json` file with your personal information
+3. Deploy to your preferred hosting service
+
+## ⚙️ Customization
+
+All personal information and project data can be modified through the `data/data.json` file. This includes:
+
+- 👤 Personal details
+- 💡 Skills and expertise
+- 📂 Project information
+- 📞 Contact details
+
+## 🌐 Deployment
+
+The website can be deployed to any static hosting service such as:
+
+- 🔗 GitHub Pages
+- 🚀 Netlify
+- ⚡ Vercel
+- 🌍 Any standard web hosting service
+
+## 📄 License
+
+Feel free to use this template for your personal portfolio.
 
 ## 🤝 Contributing
-Feel free to contribute by forking the repository, making your changes, and submitting a pull request. Contributions are welcome, especially for enhancing project descriptions and improving the overall design.
 
-## 📝 License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## 📬 Contact
-For inquiries or suggestions, please contact me by opening a issue.
-
----
-
-Thank you for visiting the Formen project website! 🌐
+Contributions are welcome! Please feel free to submit a Pull Request.

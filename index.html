@@ -1,91 +1,65 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="¡Hola! Bienvenido a Formen. Aquí encontrarás proyectos interesantes para explorar." />
-  <meta name="keywords" content="formen.cc, sitios web, cards, desarrollo web" />
-  <meta name="author" content="Formen" />
-  <meta name="google-adsense-account" content="ca-pub-9522697838585863">
-  <link rel="icon" href="./IMAGES/logo_small_icon_only.ico" type="image/x-icon" alt="Formen Logo">
-  <link rel="apple-touch-icon" href="./IMAGES/logo_small.ico" alt="Formen Logo">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" />
-  <link rel="stylesheet" href="./CSS/styles.css" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9522697838585863" crossorigin="anonymous"></script>
-  <title id="page-title">Formen - Descubre Mis Sitios Web</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formen - Portfolio</title>
+    <script src="https://kit.fontawesome.com/bc3d0bf176.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-  <!-- Landing Page Section -->
-  <section class="landing-page">
-    <div class="landing-text">
-      <h1 id="landing-title" data-es="Descubre Mis Proyectos" data-en="Discover My Projects">Descubre Mis Proyectos</h1>
-      <p id="landing-description" data-es="Bienvenido a Formen, donde encontrarás una colección de mis proyectos más emocionantes. Explora, aprende y descubre innovaciones en el mundo web." data-en="Welcome to Formen, where you will find a collection of my most exciting projects. Explore, learn, and discover innovations in the web world.">
-        Bienvenido a Formen, donde encontrarás una colección de mis proyectos más emocionantes. Explora, aprende y descubre innovaciones en el mundo web.
-      </p>
-    </div>
-  </section>
+    <div class="matrix-bg"></div>
+    
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">FORMEN.CC</div>
+            <ul class="nav-links">
+                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
- <!-- Language Switcher -->
-<div class="language-switcher" style="text-align: right; margin: 20px; padding: 10px;">
-  <select id="language-switcher" style="padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #3498db; background-color: #f0f0f0; cursor: pointer;">
-    <option value="es">Español</option>
-    <option value="en">English</option>
-    <option value="pt">Português</option>
-    <option value="fr">Français</option>
-    <option value="it">Italiano</option>
-  </select>
-</div>
+    <main>
+        <section id="home" class="hero-section">
+            <div class="terminal">
+                <div class="terminal-header">
+                    <span class="terminal-button"></span>
+                    <span class="terminal-button"></span>
+                    <span class="terminal-button"></span>
+                </div>
+                <div class="terminal-content">
+                    <div id="typed-output"></div>
+                </div>
+            </div>
+        </section>
 
-<!-- Nuevo Div de Hacktober -->
-<div class="promo-container">
-  <a href="https://hacktoberwall.formen.cc/" target="_blank"></a>
-  <div class="promo-text">
-    <h2>HACKTOBER WALL</h2>
-    <p id="landing-wall" data-es="Este es mi más reciente proyecto enfocado para ayudar a la comunidad de programadores en esta festividad de hacktoberfest" data-en="This is my most recent project aimed at helping the programming community during the hacktoberfest celebration.">
-      Este es mi más reciente proyecto enfocado para ayudar a la comunidad de programadores en esta festividad de hacktoberfest
-    </p>
-  </div>
-</div>
+        <section id="about" class="about-section">
+            <h2 class="glitch" data-text="About Me">About Me</h2>
+            <div id="about-content" class="content-container"></div>
+        </section>
 
-<!-- Nuevo Div de Publicidad -->
-<div class="promo-container">
-  <a href="https://discord.com/oauth2/authorize?client_id=739231660721045524&permissions=36768832&scope=applications.commands%20bot" target="_blank">
-    <img src="./IMAGES/PROMO.jpg" alt="Publicidad Kazuto" class="promo-image">
-  </a>
-  <div class="promo-text">
-    <h2 data-es="KAZUTO" data-en="KAZUTO">KAZUTO</h2>
-    <a href="https://discord.com/oauth2/authorize?client_id=739231660721045524&permissions=36768832&scope=applications.commands%20bot" target="_blank">
-      <button id="discord" class="promo-button" data-es="Agregar a un servidor" data-en="Add to a server">Agregar a un servidor</button>
-    </a>
-  </div>
-</div>
+        <section id="projects" class="projects-section">
+            <h2 class="glitch" data-text="Projects">Projects</h2>
+            <div id="projects-grid" class="projects-grid"></div>
+        </section>
 
+        <section id="contact" class="contact-section">
+            <h2 class="glitch" data-text="Contact">Contact</h2>
+            <div class="contact-container">
+                <div id="contact-info"></div>
+                <div class="social-links" id="social-links"></div>
+            </div>
+        </section>
+    </main>
 
-  <!-- Project Filters -->
-  <header>
-    <h1 id="projects-title" data-es="Proyectos" data-en="Projects">Proyectos</h1>
-    <div class="filters">
-      <button class="filter-btn" data-filter="all" style="background-color: #3498db;" id="filter-all">Todos</button>
-      <button class="filter-btn" data-filter="new" style="background-color: #e74c3c;" id="filter-new">Nuevos</button>
-      <button class="filter-btn" data-filter="updated" style="background-color: #2ecc71;" id="filter-updated">Actualizados</button>
-      <button class="filter-btn" data-filter="contributed" style="background-color: #f39c12;" id="filter-contributed">Contribuidos</button>
-      <button class="filter-btn" data-filter="else" style="background-color: #9b59b6;" id="filter-else">Otros</button>
-    </div>
-  </header>
+    <footer class="footer">
+        <p>&copy; 2024 Formen.cc | <span class="terminal-text"><i class="fas fa-laptop-code"></i> Computer Science Student</span></p>
+    </footer>
 
-  <!-- Projects Container -->
-  <section class="projects-container">
-    <!-- Project cards will be dynamically inserted here -->
-  </section>
-
-  <script src="./JS/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="js/main.js"></script>
 </body>
-
-<footer style="background-color: #333; color: #fff; padding: 20px; text-align: center; font-family: Arial, sans-serif;">
-    <p style="margin: 0; font-size: 18px;">Jolly Jolli</p>
-    <p style="margin: 5px 0; font-size: 14px;">
-        <a href="mailto:formen@duck.com" style="color: #fff; text-decoration: none;">formen@duck.com</a>
-    </p>
-</footer>
-
 </html>

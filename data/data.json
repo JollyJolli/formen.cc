@@ -1,0 +1,33 @@
+{
+    "personal": {
+        "name": "Formen",
+        "title": "Computer Science Student",
+        "description": "Passionate about coding, cybersecurity, and building innovative solutions. Currently exploring the depths of computer science and creating tools that make a difference.",
+        "location": "Spain",
+        "education": "Bachelor's in Computer Science",
+        "skills": [
+            "Python",
+            "JavaScript",
+            "Node.js",
+            "React",
+            "Web Development (HTML, CSS)",
+            "Problem Solving",
+            "Open-Source Contributing"
+        ]
+    },
+    "contact": {
+        "email": "contact@formen.cc",
+        "social": {
+            "github": "https://github.com/JollyJolli",
+            "linkedin": "#",
+            "twitter": "#",
+            "discord": "#"
+        }
+    },
+    "terminal_intro": [
+        "Welcome to my portfolio!",
+        "I'm Formen, a Computer Science student with a passion for technology.",
+        "Exploring the digital realm one line of code at a time.",
+        "Type 'help' to see available commands..."
+    ]
+}
