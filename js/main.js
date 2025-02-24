@@ -1,11 +1,19 @@
+let commandHistory = [];
+let historyIndex = -1;
+let personalData = null;
+let currentTheme = 'auto';
+
 document.addEventListener('DOMContentLoaded', () => {
     // Load personal data
     fetch('/data/data.json')
         .then(response => response.json())
         .then(data => {
+            personalData = data;
             initializeTyped(data.terminal_intro);
             populateAboutSection(data.personal);
             populateContactSection(data.contact);
+            initializeTerminal();
+            setTerminalTheme('auto'); // Set initial theme based on OS
         })
         .catch(error => console.error('Error loading personal data:', error));
 
@@ -15,6 +23,153 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => populateProjectsSection(data.Webs))
         .catch(error => console.error('Error loading projects:', error));
 });
+
+function getOperatingSystem() {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    if (userAgent.includes('mac')) return 'mac';
+    if (userAgent.includes('win')) return 'windows';
+    const linuxThemes = ['ubuntu', 'debian', 'arch'];
+    return linuxThemes[Math.floor(Math.random() * linuxThemes.length)];
+}
+
+function setTerminalTheme(theme) {
+    const terminal = document.querySelector('.terminal');
+    const oldTheme = currentTheme;
+    currentTheme = theme === 'auto' ? getOperatingSystem() : theme;
+
+    // Remove old theme class
+    terminal.classList.remove(`theme-${oldTheme}`);
+    
+    // Add new theme class
+    terminal.classList.add(`theme-${currentTheme}`);
+    
+    // Update prompt based on theme
+    const prompts = {
+        mac: 'visitor@formen ~ %',
+        windows: 'C:\\Users\\visitor>',
+        ubuntu: 'visitor@formen:~$',
+        debian: 'visitor@debian:~$',
+        arch: '[visitor@arch ~]$'
+    };
+    
+    document.querySelectorAll('.prompt').forEach(prompt => {
+        prompt.textContent = prompts[currentTheme] || prompts.ubuntu;
+    });
+}
+
+function initializeTerminal() {
+    const terminal = document.querySelector('.terminal-content');
+    const input = document.createElement('div');
+    input.className = 'terminal-input';
+    input.innerHTML = `<span class="prompt">visitor@formen:~$</span> <input type="text" autofocus>`;
+    terminal.appendChild(input);
+
+    const inputField = input.querySelector('input');
+    inputField.addEventListener('keydown', handleTerminalInput);
+    inputField.focus();
+
+    // Keep focus on input when clicking terminal
+    terminal.addEventListener('click', () => inputField.focus());
+}
+
+function handleTerminalInput(e) {
+    if (e.key === 'Enter') {
+        const command = e.target.value.trim().toLowerCase();
+        if (command) {
+            commandHistory.push(command);
+            historyIndex = commandHistory.length;
+            processCommand(command);
+            e.target.value = '';
+        }
+    } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (historyIndex > 0) {
+            historyIndex--;
+            e.target.value = commandHistory[historyIndex];
+        }
+    } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (historyIndex < commandHistory.length - 1) {
+            historyIndex++;
+            e.target.value = commandHistory[historyIndex];
+        } else {
+            historyIndex = commandHistory.length;
+            e.target.value = '';
+        }
+    }
+}
+
+function processCommand(command) {
+    const terminal = document.querySelector('.terminal-content');
+    const output = document.createElement('div');
+    output.className = 'terminal-output';
+
+    switch(command) {
+        case 'help':
+            output.innerHTML = `Available commands:
+                <br>about - Display information about me
+                <br>skills - List my technical skills
+                <br>contact - Show contact information
+                <br>projects - List my projects
+                <br>clear - Clear terminal
+                <br>matrix - Toggle Matrix effect
+                <br>whoami - Display current user
+                <br>theme - Show current theme
+                <br>mac - Switch to macOS theme
+                <br>windows - Switch to Windows theme
+                <br>linux - Switch to random Linux theme
+                <br>coffee - Make coffee ☕
+                <br>help - Show this help message`;
+            break;
+        case 'about':
+            output.innerHTML = `${personalData.personal.description}`;
+            break;
+        case 'skills':
+            output.innerHTML = `My skills:\n${personalData.personal.skills.map(skill => `• ${skill}`).join('\n')}`;
+            break;
+        case 'contact':
+            output.innerHTML = `Email: ${personalData.contact.email}\nGitHub: ${personalData.contact.social.github}`;
+            break;
+        case 'projects':
+            output.innerHTML = 'Check out my projects section below! 👇';
+            document.querySelector('#projects').scrollIntoView({ behavior: 'smooth' });
+            break;
+        case 'clear':
+            terminal.innerHTML = '';
+            initializeTerminal();
+            return;
+        case 'clr':
+            terminal.innerHTML = '';
+            initializeTerminal();
+            return;
+        case 'theme':
+            output.innerHTML = `Current theme: ${currentTheme}`;
+            break;
+        case 'mac':
+            setTerminalTheme('mac');
+            output.innerHTML = 'Switched to macOS theme';
+            break;
+        case 'windows':
+            setTerminalTheme('windows');
+            output.innerHTML = 'Switched to Windows theme';
+            break;
+        case 'linux':
+            setTerminalTheme('auto');
+            output.innerHTML = 'Switched to random Linux theme';
+            break;
+        case 'whoami':
+            output.innerHTML = 'visitor';
+            break;
+        case 'coffee':
+            output.innerHTML = 'Here\'s your coffee! ☕';
+            break;
+        default:
+            output.innerHTML = `Command not found: ${command}. Type 'help' for available commands.`;
+    }
+
+    terminal.insertBefore(output, terminal.lastElementChild);
+    terminal.lastElementChild.querySelector('input').focus();
+}
 
 function initializeTyped(introLines) {
     new Typed('#typed-output', {
@@ -129,7 +284,27 @@ function matrix() {
     });
 }
 
-setInterval(matrix, 50);
+setInterval(matrix, 30); // Increased animation speed
+
+// Add glitch effect to project cards
+const projectCards = document.querySelectorAll('.project-card');
+projectCards.forEach(card => {
+    card.addEventListener('mouseover', () => {
+        card.style.transform = `translate(${Math.random() * 4 - 2}px, ${Math.random() * 4 - 2}px)`;
+        setTimeout(() => {
+            card.style.transform = 'translateY(-5px)';
+        }, 100);
+    });
+});
+
+// Add digital noise effect
+function createNoise() {
+    const noise = document.createElement('div');
+    noise.className = 'noise';
+    document.body.appendChild(noise);
+}
+
+createNoise();
 
 window.addEventListener('resize', () => {
     width = canvas.width = window.innerWidth;
