@@ -338,7 +338,7 @@ function processCommand(command) {
             output.innerHTML = 'Here\'s your coffee! ☕';
             break;
         default:
-            output.innerHTML = `Command not found: ${command}. Type 'help' for available commands.`;
+            output.innerHTML = `Command not found: ${command}. Type <helpCommands style="color:red;">'help'</helpCommands> for available commands.`;
     }
 
     terminal.insertBefore(output, terminal.lastElementChild);
