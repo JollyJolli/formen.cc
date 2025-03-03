@@ -30,12 +30,19 @@
 }
 
 :root {
-    --primary-color: #0f0;
-    --secondary-color: #000;
-    --text-color: #0f0;
-    --terminal-bg: rgba(0, 0, 0, 0.95);
+    --primary-color: #00ff9d;
+    --secondary-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --terminal-bg: #0d0d0d;
+    --accent-color: #ff4b4b;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --metal-gradient: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+    --leather-texture: linear-gradient(45deg, #2c1810, #1a0f0a);
     --font-mono: 'Fira Code', monospace;
     --font-sans: 'Space Mono', sans-serif;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 12px var(--shadow-color);
+    --inset-shadow: inset 0 2px 4px var(--shadow-color);
 }
 
 * {
@@ -50,6 +57,13 @@ body {
     font-family: var(--font-mono);
     line-height: 1.6;
     overflow-x: hidden;
+    background-image: repeating-linear-gradient(
+        45deg,
+        #1a1a1a 0px,
+        #1a1a1a 2px,
+        #222222 2px,
+        #222222 4px
+    );
 }
 
 .scanline {
@@ -94,7 +108,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2rem;
+    padding: 1rem 2rem;
+    background: var(--metal-gradient);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border: 1px solid rgba(204, 204, 204, 0.5);
 }
 
 .logo {
@@ -114,11 +132,23 @@ body {
 .nav-links a {
     color: var(--text-color);
     text-decoration: none;
-    transition: color 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    background: var(--metal-gradient);
+    border: 1px solid #ccc;
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: var(--primary-color);
+    color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+.nav-links a:active {
+    transform: translateY(1px);
+    box-shadow: var(--inset-shadow);
 }
 
 main {
@@ -230,36 +260,74 @@ section {
 }
 
 .terminal {
-    background: var(--terminal-bg);
-    border-radius: 10px;
-    width: 100%;
-    max-width: 800px;
+    background: linear-gradient(145deg, #0f0f0f, #0a0a0a);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
-    transition: all 0.3s ease;
+    position: relative;
+}
+
+.terminal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
 }
 
 .terminal-header {
-    background: #2d2d2d;
-    padding: 0.5rem;
-    display: flex;
-    gap: 0.5rem;
-    transition: background-color 0.3s ease;
+    background: linear-gradient(180deg, #1a1a1a, #0f0f0f);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 0.75rem;
 }
 
 .terminal-button {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: #ff5f56;
+    position: relative;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
 }
 
-.terminal-button:nth-child(2) {
-    background: #ffbd2e;
+.terminal-button::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
 }
 
-.terminal-button:nth-child(3) {
-    background: #27c93f;
+.terminal-content {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    color: #00ff9d;
+    text-shadow: 0 0 5px rgba(0, 255, 157, 0.5);
+}
+
+.project-card {
+    background: linear-gradient(145deg, #1c1c1c, #141414);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 255, 157, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border-color: rgba(0, 255, 157, 0.3);
 }
 
 .terminal-content {
@@ -419,14 +487,13 @@ section {
 .project-card {
     position: relative;
     overflow: hidden;
-    background: var(--terminal-bg);
-    border: 1px solid var(--primary-color);
-    border-radius: 8px;
+    background: var(--metal-gradient);
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
     padding: 2rem;
     transition: all 0.3s ease;
-    box-shadow: 0 0 15px rgba(0, 255, 0, 0.15),
-                inset 0 0 20px rgba(0, 255, 0, 0.05);
-    backdrop-filter: blur(5px);
+    box-shadow: var(--box-shadow),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 .project-card::before {
