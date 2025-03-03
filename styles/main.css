@@ -206,8 +206,10 @@ section {
     max-height: 60vh;
     overflow-y: auto;
     font-family: var(--font-mono);
-    color: var(--primary-color);
+    color: var(--terminal-text, var(--primary-color));
     line-height: 1.6;
+    background-color: var(--terminal-bg, var(--terminal-bg));
+    position: relative;
 }
 
 .terminal-input {
@@ -224,11 +226,24 @@ section {
 .terminal-input input {
     background: transparent;
     border: none;
-    color: var(--primary-color);
+    color: var(--terminal-text, var(--primary-color));
     font-family: var(--font-mono);
     font-size: 1rem;
     outline: none;
     flex: 1;
+    caret-color: transparent;
+}
+
+.cursor {
+    display: inline-block;
+    margin-left: 0.2em;
+    animation: blink 1s step-end infinite;
+    color: var(--terminal-text, var(--primary-color));
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 .terminal-output {
@@ -260,8 +275,10 @@ section {
 }
 
 .terminal {
-    background: linear-gradient(145deg, #0f0f0f, #0a0a0a);
+    background: var(--terminal-bg, linear-gradient(145deg, #0f0f0f, #0a0a0a));
     border: 1px solid rgba(255, 255, 255, 0.1);
+    --terminal-text: #00ff00;
+    --terminal-bg: #000000;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8),
                 inset 0 1px 0 rgba(255, 255, 255, 0.05);

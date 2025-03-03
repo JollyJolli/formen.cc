@@ -64,6 +64,12 @@ function initializeTerminal() {
     input.innerHTML = `<span class="prompt">visitor@formen:~$</span> <input type="text" autofocus>`;
     terminal.appendChild(input);
 
+    // Add blinking cursor effect
+    const cursor = document.createElement('span');
+    cursor.className = 'cursor';
+    cursor.innerHTML = '_';
+    input.appendChild(cursor);
+
     const inputField = input.querySelector('input');
     inputField.addEventListener('keydown', handleTerminalInput);
     inputField.focus();
@@ -103,23 +109,150 @@ function processCommand(command) {
     const terminal = document.querySelector('.terminal-content');
     const output = document.createElement('div');
     output.className = 'terminal-output';
+    
+    // Split command and arguments
+    const [cmd, ...args] = command.split(' ');
 
-    switch(command) {
+    switch(cmd) {
         case 'help':
-            output.innerHTML = `Available commands:
-                <br>about - Display information about me
-                <br>skills - List my technical skills
-                <br>contact - Show contact information
-                <br>projects - List my projects
-                <br>clear - Clear terminal
-                <br>matrix - Toggle Matrix effect
-                <br>whoami - Display current user
-                <br>theme - Show current theme
-                <br>mac - Switch to macOS theme
-                <br>windows - Switch to Windows theme
-                <br>linux - Switch to random Linux theme
-                <br>coffee - Make coffee ☕
-                <br>help - Show this help message`;
+            output.innerHTML = `
+                <div style="color: #00ff00; margin-bottom: 10px;">Available Commands:</div>
+                
+                <div style="color: #4a9eff; margin: 5px 0;">📋 Portfolio Information:</div>
+                about     - Display information about me
+                skills    - List my technical skills
+                contact   - Show contact information
+                projects  - List my projects
+                
+                <div style="color: #4a9eff; margin: 5px 0;">🎨 Terminal Customization:</div>
+                theme     - Show current theme
+                mac       - Switch to macOS theme
+                windows   - Switch to Windows theme
+                linux     - Switch to random Linux theme
+                color     - Change terminal colors (usage: color [fg] [bg])
+                clear/cls - Clear terminal
+                
+                <div style="color: #4a9eff; margin: 5px 0;">📂 File Operations:</div>
+                ls        - List directory contents
+                pwd       - Print working directory
+                cd        - Change directory (usage: cd [dir])
+                mkdir     - Create directory (usage: mkdir [name])
+                touch     - Create file (usage: touch [name])
+                rm        - Remove file or directory (usage: rm [name])
+                cat       - Display file contents (usage: cat [file])
+                grep      - Search for pattern (usage: grep [pattern] [file])
+                
+                <div style="color: #4a9eff; margin: 5px 0;">🎮 Fun Commands:</div>
+                hack      - Start hacking animation
+                weather   - Show weather forecast
+                fortune   - Display random fortune
+                coffee    - Make coffee ☕
+                matrix    - Toggle Matrix effect
+                
+                <div style="color: #4a9eff; margin: 5px 0;">ℹ️ System:</div>
+                whoami    - Display current user
+                echo      - Display text (usage: echo [text])
+                date      - Show current date and time
+                help      - Show this help message
+                
+                <div style="color: #00ff00; margin-top: 10px; font-size: 0.9em;">Tip: Commands marked with [arguments] require additional input</div>`;
+            break;
+        case 'pwd':
+            output.innerHTML = '/home/visitor';
+            break;
+        case 'cd':
+            output.innerHTML = args.length > 0 ? `Changed directory to ${args[0]}` : 'Usage: cd [directory]';
+            break;
+        case 'mkdir':
+            output.innerHTML = args.length > 0 ? `Created directory ${args[0]}` : 'Usage: mkdir [name]';
+            break;
+        case 'touch':
+            output.innerHTML = args.length > 0 ? `Created file ${args[0]}` : 'Usage: touch [name]';
+            break;
+        case 'rm':
+            output.innerHTML = args.length > 0 ? `Removed ${args[0]}` : 'Usage: rm [name]';
+            break;
+        case 'cat':
+            if (args.length > 0) {
+                if (args[0] === 'Readme.txt') {
+                    output.innerHTML = 'Welcome to my portfolio! Feel free to explore using the terminal commands.';
+                } else {
+                    output.innerHTML = `File not found: ${args[0]}`;
+                }
+            } else {
+                output.innerHTML = 'Usage: cat [file]';
+            }
+            break;
+        case 'grep':
+            if (args.length >= 2) {
+                const pattern = args[0];
+                const filename = args[1];
+                let fileContent = '';
+                
+                // Define some sample content for files
+                const fileContents = {
+                    'readme.txt': 'Welcome to my portfolio!\nFeel free to explore using the terminal commands.\nThis is a simulated file system.\nYou can use various commands to interact with it.',
+                    'portfolio.html': '<!DOCTYPE html>\n<html>\n<head>\n<title>Portfolio</title>\n</head>\n<body>\nWelcome to my portfolio website\nCheck out my projects and skills\n</body>\n</html>',
+                    'projects/notes.txt': 'Project Ideas:\n1. Web Development\n2. Mobile Apps\n3. Machine Learning\nStatus: In Progress'
+                };
+
+                // Convert filename to lowercase for case-insensitive comparison
+                const lowercaseFilename = filename.toLowerCase();
+                
+                // Check if file exists in our simulated filesystem
+                if (fileContents[lowercaseFilename]) {
+                    fileContent = fileContents[lowercaseFilename];
+                    const lines = fileContent.split('\n');
+                    let matches = [];
+                    
+                    // Search for pattern in each line
+                    lines.forEach((line, index) => {
+                        if (line.toLowerCase().includes(pattern.toLowerCase())) {
+                            matches.push(`<span style="color: #4a9eff">${index + 1}</span>: ${line.replace(
+                                new RegExp(pattern, 'gi'),
+                                match => `<span style="color: #00ff00">${match}</span>`
+                            )}`);
+                        }
+                    });
+                    
+                    if (matches.length > 0) {
+                        output.innerHTML = `Found ${matches.length} matches in ${filename}:\n${matches.join('\n')}`;
+                    } else {
+                        output.innerHTML = `No matches found for pattern '${pattern}' in ${filename}`;
+                    }
+                } else {
+                    output.innerHTML = `File not found: ${filename}`;
+                }
+            } else {
+                output.innerHTML = 'Usage: grep [pattern] [file]';
+            }
+            break;
+        case 'hack':
+            output.innerHTML = 'Initializing hack sequence...<br>';
+            let hackText = '';
+            let i = 0;
+            const interval = setInterval(() => {
+                hackText += Math.random().toString(36).substring(2, 15) + '<br>';
+                output.innerHTML = hackText;
+                i++;
+                if (i > 10) {
+                    clearInterval(interval);
+                    output.innerHTML += '<br>Access granted! 🔓';
+                }
+            }, 100);
+            break;
+        case 'weather':
+            output.innerHTML = '🌤️ Current weather:<br>Location: Cyberpunk City<br>Temperature: 23°C<br>Condition: Partly cloudy with a chance of binary rain';
+            break;
+        case 'fortune':
+            const fortunes = [
+                '"The best way to predict the future is to create it." - Peter Drucker',
+                '"Code is like humor. When you have to explain it, its bad." - Cory House',
+                '"The only way to do great work is to love what you do." - Steve Jobs',
+                '"Life is short, use Python." - Bruce Eckel',
+                '"Talk is cheap. Show me the code." - Linus Torvalds'
+            ];
+            output.innerHTML = fortunes[Math.floor(Math.random() * fortunes.length)];
             break;
         case 'about':
             output.innerHTML = `${personalData.personal.description}`;
@@ -135,13 +268,44 @@ function processCommand(command) {
             document.querySelector('#projects').scrollIntoView({ behavior: 'smooth' });
             break;
         case 'clear':
+        case 'cls':
             terminal.innerHTML = '';
             initializeTerminal();
             return;
-        case 'clr':
-            terminal.innerHTML = '';
-            initializeTerminal();
-            return;
+        case 'color':
+            if (args.length >= 2) {
+                const [fg, bg] = args;
+                // Validate color format
+                const isValidColor = color => /^#([0-9A-Fa-f]{3}){1,2}$/.test(color) || /^rgb\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*\)$/.test(color);
+                
+                if (!isValidColor(fg) || !isValidColor(bg)) {
+                    output.innerHTML = 'Invalid color format. Please use hex (#RRGGBB) or RGB format.';
+                    break;
+                }
+
+                // Apply colors to terminal
+                const terminal = document.querySelector('.terminal');
+                terminal.style.setProperty('--terminal-text', fg);
+                terminal.style.setProperty('--terminal-bg', bg);
+                
+                // Update input text color
+                const inputs = terminal.querySelectorAll('input');
+                inputs.forEach(input => input.style.color = fg);
+                
+                output.innerHTML = `Terminal colors updated to: fg=${fg}, bg=${bg}`;
+            } else {
+                output.innerHTML = 'Usage: color [foreground] [background]\nExample: color #00ff00 #000000';
+            }
+            break;
+        case 'echo':
+            output.innerHTML = args.join(' ');
+            break;
+        case 'date':
+            output.innerHTML = new Date().toLocaleString();
+            break;
+        case 'ls':
+            output.innerHTML = 'Documents/\nProjects/\nReadme.txt\nportfolio.html';
+            break;
         case 'theme':
             output.innerHTML = `Current theme: ${currentTheme}`;
             break;
@@ -158,7 +322,17 @@ function processCommand(command) {
             output.innerHTML = 'Switched to random Linux theme';
             break;
         case 'whoami':
-            output.innerHTML = 'visitor';
+            output.innerHTML = `
+                <div style="color: #4a9eff; margin-bottom: 10px;">
+                    <i class="fas fa-user"></i> User Information
+                </div>
+                <div style="margin-left: 10px;">
+                    <div><i class="fas fa-id-badge" style="color: #00ff00;"></i> Username: visitor</div>
+                    <div><i class="fas fa-user-tag" style="color: #00ff00;"></i> Role: Guest User</div>
+                    <div><i class="fas fa-clock" style="color: #00ff00;"></i> Login Time: ${new Date().toLocaleTimeString()}</div>
+                    <div><i class="fas fa-terminal" style="color: #00ff00;"></i> Terminal: ${currentTheme.charAt(0).toUpperCase() + currentTheme.slice(1)} Terminal</div>
+                    <div><i class="fas fa-shield-alt" style="color: #00ff00;"></i> Permissions: Read-only</div>
+                </div>`;
             break;
         case 'coffee':
             output.innerHTML = 'Here\'s your coffee! ☕';
