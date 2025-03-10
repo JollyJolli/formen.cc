@@ -1,65 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formen - Portfolio</title>
-    <script src="https://kit.fontawesome.com/bc3d0bf176.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles/main.css">
-</head>
-<body>
+    <script
+      src="https://kit.fontawesome.com/bc3d0bf176.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
     <div class="matrix-bg"></div>
-    
+
     <header class="header">
-        <nav class="nav-container">
-            <div class="logo">FORMEN.CC</div>
-            <ul class="nav-links">
-                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-                <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
-                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-            </ul>
-        </nav>
+      <nav class="nav-container">
+        <div class="logo">FORMEN.CC</div>
+        <ul class="nav-links">
+          <li>
+            <a href="#home"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li>
+            <a href="#about"><i class="fas fa-user"></i> About</a>
+          </li>
+          <li>
+            <a href="#projects"><i class="fas fa-code"></i> Projects</a>
+          </li>
+          <li>
+            <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <main>
-        <section id="home" class="hero-section">
-            <div class="terminal">
-                <div class="terminal-header">
-                    <span class="terminal-button"></span>
-                    <span class="terminal-button"></span>
-                    <span class="terminal-button"></span>
-                </div>
-                <div class="terminal-content">
-                    <div id="typed-output"></div>
-                </div>
-            </div>
-        </section>
+      <section id="home" class="hero-section">
+        <div class="terminal">
+          <div class="terminal-header">
+            <span class="terminal-button"></span>
+            <span class="terminal-button"></span>
+            <span class="terminal-button"></span>
+          </div>
+          <div class="terminal-content">
+            <div id="typed-output"></div>
+          </div>
+        </div>
+      </section>
 
-        <section id="about" class="about-section">
-            <h2 class="glitch" data-text="About Me">About Me</h2>
-            <div id="about-content" class="content-container"></div>
-        </section>
+      <section id="about" class="about-section">
+        <h2 class="glitch" data-text="About Me">About Me</h2>
+        <div id="about-content" class="content-container"></div>
+      </section>
 
-        <section id="projects" class="projects-section">
-            <h2 class="glitch" data-text="Projects">Projects</h2>
-            <div id="projects-grid" class="projects-grid"></div>
-        </section>
+      <section id="projects" class="projects-section">
+        <h2 class="glitch" data-text="Projects">Projects</h2>
+        <div id="projects-grid" class="projects-grid"></div>
+      </section>
 
-        <section id="contact" class="contact-section">
-            <h2 class="glitch" data-text="Contact">Contact</h2>
-            <div class="contact-container">
-                <div id="contact-info"></div>
-                <div class="social-links" id="social-links"></div>
-            </div>
-        </section>
+      <section id="contact" class="contact-section">
+        <h2 class="glitch" data-text="Contact">Contact</h2>
+        <div class="contact-container">
+          <div id="contact-info"></div>
+          <div class="social-links" id="social-links"></div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
-        <p>&copy; 2024 Formen.cc | <span class="terminal-text"><i class="fas fa-laptop-code"></i> Computer Science Student</span></p>
+      <p>
+        &copy;
+        <script>
+          document.write(new Date().getFullYear())
+        </script>
+        Formen.cc |
+        <span class="terminal-text"
+          ><i class="fas fa-laptop-code"></i> Computer Science Student</span
+        >
+      </p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="js/main.js"></script>
-</body>
+  </body>
 </html>
