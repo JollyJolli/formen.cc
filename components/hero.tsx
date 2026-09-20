@@ -1,42 +1,36 @@
 import type { Personal } from "@/content/site";
 
-type HeroProps = {
+export function Hero({
+  personal,
+  projectCount,
+}: {
   personal: Personal;
   projectCount: number;
-};
-
-const bootLines = [
-  "boot formen.cc",
-  "load web projects",
-  "mount germany",
-  "ready",
-];
-
-export function Hero({ personal, projectCount }: HeroProps) {
+}) {
   return (
     <section className="hero" id="top" aria-labelledby="hero-title">
-      <div className="hero-shell" aria-label="Status">
-        {bootLines.map((line, index) => (
-          <span key={line}>
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            {line}
-          </span>
-        ))}
+      <div className="hero-heading">
+        <p className="eyebrow">Personal site / {personal.location}</p>
+        <h1 id="hero-title">
+          {personal.name}
+          <span aria-hidden="true">.</span>
+        </h1>
       </div>
-
-      <div className="hero-main">
-        <p className="eyebrow">{personal.location} / {personal.education}</p>
-        <h1 id="hero-title">Formen</h1>
+      <div className="hero-bottom">
         <p className="hero-statement">
-          Computer Science student. I like web development and small tools that
-          make technology easier to understand.
+          Computer Science student.
+          <br />I like building things for the web.
         </p>
+        <div className="hero-meta">
+          <span>JavaScript / Next.js / C / C++</span>
+          <a href="#work">
+            Explore my work <span aria-hidden="true">↓</span>
+          </a>
+        </div>
       </div>
-
-      <div className="hero-meta" aria-label="Profile summary">
-        <span>focus: web development</span>
-        <span>projects: {projectCount}</span>
-        <span>stack: js / next.js / c / c++</span>
+      <div className="hero-foot">
+        <span>Code. Learn. Try again.</span>
+        <a href="#index">{projectCount} projects in the index</a>
       </div>
     </section>
   );

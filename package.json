@@ -16,11 +16,13 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.0.0",
+    "@playwright/test": "^1.63.0",
     "@types/node": "^24.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "eslint": "^9.0.0",
     "eslint-config-next": "^16.0.0",
+    "sharp": "^0.35.4",
     "typescript": "^5.9.0"
   }
 }

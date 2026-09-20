@@ -10,7 +10,9 @@ export function About({ personal }: AboutProps) {
       <div className="section-head split">
         <div>
           <p className="eyebrow">profile</p>
-          <h2 id="about-title">I study Computer Science and build for the web.</h2>
+          <h2 id="about-title">
+            I study Computer Science and build for the web.
+          </h2>
         </div>
         <p>{personal.focus}</p>
       </div>

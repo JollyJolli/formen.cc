@@ -7,3 +7,6 @@ coverage
 *.tsbuildinfo
 .chrome-profile
 .DS_Store
+
+test-results/
+playwright-report/

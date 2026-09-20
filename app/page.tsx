@@ -10,8 +10,11 @@ import { personal, projects } from "@/content/site";
 export default function Home() {
   return (
     <>
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
       <Header />
-      <main>
+      <main id="main" tabIndex={-1}>
         <Hero personal={personal} projectCount={projects.length} />
         <ProjectShowcase projects={projects} />
         <ProjectArchive projects={projects} />

@@ -1,8 +1,8 @@
 export function Footer() {
   return (
     <footer className="footer">
-      <p>formen.cc</p>
-      <p>built as a small personal system</p>
+      <p>formen.cc / Germany</p>
+      <a href="#top">Back to top ↑</a>
     </footer>
   );
 }

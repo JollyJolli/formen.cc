@@ -1,33 +1,27 @@
-# Formen.cc Portfolio
+# Formen
 
-A complete rebuild of the Formen personal portfolio as a Next.js application.
-
-## What is here
-
-- Next.js App Router
-- TypeScript
-- Custom CSS with no UI component library
-- Local typed content in `content/site.ts`
-- A selected-work showcase plus a full project archive
-- Preserved contact details, GitHub link, skills, and all existing project URLs
+Personal portfolio built with Next.js App Router, TypeScript, and plain CSS.
 
 ## Development
 
-```bash
-npm install
-npm run dev
-```
+- `npm install`
+- `npm run dev`
+- Open http://localhost:3000
 
-Open `http://localhost:3000`.
+Edit personal details and the project index in `content/site.ts`.
+Selected projects and their preview descriptions are in `components/project-showcase.tsx`.
 
-## Validation
+## Checks
 
-```bash
-npm run typecheck
-npm run lint
-npm run build
-```
+- `npm run typecheck`
+- `npm run lint`
+- `npm run build`
+- `npx playwright test` (requires Google Chrome)
 
-## Editing content
+Browser checks cover search, category filters, keyboard navigation, image loading, and widths from 320px to 1920px. Screenshots are written to the ignored `test-results/` directory.
 
-Project and profile content lives in `content/site.ts`. Add or edit projects there; the homepage renders from that data automatically.
+## Project previews
+
+`public/projects/` contains optimized WebP screenshots of the actual linked projects. Run `node scripts/capture-projects.mjs` to refresh them. This requires Chrome and internet access; inspect the new captures before publishing.
+
+Deploy as a Next.js application. The portfolio does not need a database or environment variables.
