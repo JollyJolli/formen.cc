@@ -1,64 +1,33 @@
-# 💻 Personal Portfolio Website
+# Formen.cc Portfolio
 
-A modern, hacker-themed personal portfolio website that showcases your projects and skills in an engaging way.
+A complete rebuild of the Formen personal portfolio as a Next.js application.
 
-## ✨ Features
+## What is here
 
-- 🎯 Clean and minimalist design with a hacker theme
-- 📱 Responsive layout that works on all devices
-- 🚀 Dynamic project showcase
-- 🔧 Skills and expertise section
-- 📬 Contact information display
-- ⚙️ Easy to customize through data.json
+- Next.js App Router
+- TypeScript
+- Custom CSS with no UI component library
+- Local typed content in `content/site.ts`
+- A selected-work showcase plus a full project archive
+- Preserved contact details, GitHub link, skills, and all existing project URLs
 
-## 🛠️ Technologies Used
+## Development
 
-- 🌐 HTML5
-- 🎨 CSS3
-- 🔄 JavaScript (Vanilla)
-- 📦 JSON for data management
-
-## 📁 Project Structure
-
-```
-├── data/
-│   └── data.json        # Personal information and project data
-├── js/
-│   └── main.js         # Core JavaScript functionality
-├── styles/
-│   └── main.css        # Styling and animations
-├── index.html          # Main entry point
-└── README.md          # Project documentation
+```bash
+npm install
+npm run dev
 ```
 
-## 🚀 Setup
+Open `http://localhost:3000`.
 
-1. Clone the repository
-2. Customize the `data/data.json` file with your personal information
-3. Deploy to your preferred hosting service
+## Validation
 
-## ⚙️ Customization
+```bash
+npm run typecheck
+npm run lint
+npm run build
+```
 
-All personal information and project data can be modified through the `data/data.json` file. This includes:
+## Editing content
 
-- 👤 Personal details
-- 💡 Skills and expertise
-- 📂 Project information
-- 📞 Contact details
-
-## 🌐 Deployment
-
-The website can be deployed to any static hosting service such as:
-
-- 🔗 GitHub Pages
-- 🚀 Netlify
-- ⚡ Vercel
-- 🌍 Any standard web hosting service
-
-## 📄 License
-
-Feel free to use this template for your personal portfolio.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+Project and profile content lives in `content/site.ts`. Add or edit projects there; the homepage renders from that data automatically.

@@ -1,0 +1,9 @@
+node_modules
+.next
+out
+dist
+coverage
+.env*.local
+*.tsbuildinfo
+.chrome-profile
+.DS_Store
